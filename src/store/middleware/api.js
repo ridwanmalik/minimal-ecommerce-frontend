@@ -17,10 +17,15 @@ const api = ({ dispatch }) => next => async action => {
       method,
       data
     })
-    // General
-    dispatch(actions.apiCallSuccess(response.data))
-    // Specific
-    if (onSuccess) dispatch({ type: onSuccess, payload: response.data })
+    if (response.data.isSuccess) {
+      // General
+      dispatch(actions.apiCallSuccess(response.data.data.products))
+      // Specific
+      if (onSuccess) dispatch({ type: onSuccess, payload: response.data.data.products })
+    } else {
+      dispatch(actions.apiCallFailed("Data Successfully Fetched But Something Went Wrong"))
+      if (onError) dispatch({ type: onError, payload: "Data Successfully Fetched But Something Went Wrong" })
+    }
   } catch (error) {
     // General
     dispatch(actions.apiCallFailed(error.message))

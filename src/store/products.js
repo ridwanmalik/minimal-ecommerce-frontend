@@ -15,6 +15,7 @@ const slice = createSlice({
       products.loading = true
     },
     productsSuccess: (products, action) => {
+      console.log("productsSuccess", action.payload)
       products.list = action.payload
       products.loading = false
       products.lastFetch = Date.now()

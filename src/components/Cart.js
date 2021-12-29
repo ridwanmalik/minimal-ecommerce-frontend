@@ -1,7 +1,7 @@
 import { FaOpencart } from "react-icons/fa"
 import { FiShoppingCart, FiShoppingBag } from "react-icons/fi"
 import { BiX, BiTrash } from "react-icons/bi"
-import formatCurrency from "../util"
+import { formatCurrency, formatImage } from "../util"
 
 const Cart = ({ show, setShow, cart, removeFormCart }) => {
   const toggleCart = () => {
@@ -35,7 +35,7 @@ const Cart = ({ show, setShow, cart, removeFormCart }) => {
                   <div className="cart-body-item mb-6" key={ index }>
                     <div className="d-flex">
                       <div className="cart-body-item-image">
-                        <img src={ item.image } alt={ item.title } />
+                        <img src={ formatImage(item.image) } alt={ item.title } />
                       </div>
                       <div className="cart-body-item-info ms-3 flex-grow-1 d-flex">
                         <div className="d-flex flex-column justify-content-center flex-grow-1">
