@@ -4,6 +4,7 @@ import { formatCurrency, formatImage } from "../util"
 import Modal from 'react-modal'
 import { useState } from "react"
 import { connect } from "react-redux"
+import parse from "html-react-parser"
 
 const Products = ({ products, addToCart }) => {
   const [product, setProduct] = useState(null)
@@ -54,20 +55,20 @@ const Products = ({ products, addToCart }) => {
           <button className="close-modal btn btn-dark" onClick={ closeModal }>x</button>
           <div className="product-details d-flex py-8">
             <div className="product-details-image">
-              <img className="modal-img" src={ product.image } alt={ product.name } />
+              <img className="modal-img" src={ formatImage(product.image) } alt={ product.name } />
             </div>
             <div className="product-details-description ps-8">
               <h2 className="mb-5">{ product.name }</h2>
               <p className="fw-bold d-flex">$<span className="fs-3 lh-1">{ product.price }</span></p>
-              <p>{ product.description }</p>
+              <p>{ parse(product.description) }</p>
               <div className="">
                 <button className="btn btn-primary text-white rounded-pill py-2 px-5 mb-5" onClick={ addTOCartModal }><FiShoppingCart className="fs-5 me-2" />Add To Cart</button>
               </div>
               <div className="rating d-flex">
-                <span className="text-primary me-1">
+                {/* <span className="text-primary me-1">
                   <BiStar className="fs-5" />
-                </span>
-                <p className="rating_rate fs-5 fw-bold mb-0">{ `${product.rating.rate} | ${product.rating.count} ratings` }</p>
+                </span> */}
+                {/* <p className="rating_rate fs-5 fw-bold mb-0">{ `${product.rating.rate} | ${product.rating.count} ratings` }</p> */ }
               </div>
             </div>
           </div>
