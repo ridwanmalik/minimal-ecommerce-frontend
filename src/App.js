@@ -46,7 +46,7 @@ const App = () => {
             <span className="text-primary">
               <FaOpencart className='me-3' />
             </span>
-            Shopping Cart
+            Minimal E-commerce
           </h1>
           <Products products={ products } addToCart={ addToCart } />
           <Cart show={ show } cart={ cart } setShow={ setShow } removeFormCart={ removeFormCart } />

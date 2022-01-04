@@ -9,7 +9,7 @@ export default function () {
     middleware: [
       ...getDefaultMiddleware(),
       toast,
-      api
+      api,
     ]
   })
 }

@@ -1,6 +1,6 @@
-# Shopping Cart
+# minimal-ecommerce-frontend
 
-A simple shopping cart using React & Redux.
+A simple e-commerce using React & Redux.
 
 ## QuickStart
 
