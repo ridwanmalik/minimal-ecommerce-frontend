@@ -3,5 +3,5 @@ export function formatCurrency(num) {
 }
 
 export function formatImage(url) {
-  return `${process.env.REACT_APP_STORAGE_URL}${url}`
+  return `${url}`
 }
